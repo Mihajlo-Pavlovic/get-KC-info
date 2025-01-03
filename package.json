@@ -1,0 +1,19 @@
+{
+  "name": "get-kc-info",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mihajlo-Pavlovic/get-KC-info.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mihajlo-Pavlovic/get-KC-info/issues"
+  },
+  "homepage": "https://github.com/Mihajlo-Pavlovic/get-KC-info#readme"
+}
