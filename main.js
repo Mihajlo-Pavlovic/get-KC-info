@@ -1,4 +1,4 @@
-const { ethers } = require("ethers");
+import { JsonRpcProvider, Contract, ethers } from "ethers";
 
 const ABI = [
   "function getKnowledgeCollection(uint256 id) external view returns (tuple((address publisher, bytes32 merkleRoot, uint256 timestamp)[] merkleRoots, uint256[] burned, uint256 minted, uint88 byteSize, uint40 startEpoch, uint40 endEpoch, uint96 tokenAmount, bool isImmutable))",
@@ -18,9 +18,9 @@ async function main() {
       process.exit(1);
     }
 
-    const provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+    const provider = new JsonRpcProvider(RPC_URL);
 
-    const knowledgeCollectionStorage = new ethers.Contract(
+    const knowledgeCollectionStorage = new Contract(
       CONTRACT_ADDRESS,
       ABI,
       provider
@@ -46,7 +46,7 @@ async function main() {
     console.log("End Epoch:", knowledgeCollection.endEpoch);
     console.log(
       "Token Amount:",
-      ethers.utils.formatEther(knowledgeCollection.tokenAmount)
+      ethers.formatEther(knowledgeCollection.tokenAmount)
     );
     // console.log("Is Immutable:", knowledgeCollection.isImmutable);
   } catch (error) {
@@ -55,5 +55,4 @@ async function main() {
   }
 }
 
-// 10. Execute the script
 main();
